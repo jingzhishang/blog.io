@@ -8,7 +8,7 @@ url: "http://cnfeat"  # 此处填写你的博客地址
 
 # About/contact
 owner: 
-  name: "方兴" # 填写作者信息：名字
+  name: "方佑轩" # 填写作者信息：名字
   email: X@gmail.com # 填写作者信息：邮箱
   bio: "作者很赖，什么都没留下" # 填写作者信息：博客描述
 
@@ -43,7 +43,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "你的名字" # 你的名字
+      author: "方佑轩" # 你的名字
       header-img: "img/green.jpg" # We don't want posts without a header image, that whould mean white on white
 
 # Comments 
