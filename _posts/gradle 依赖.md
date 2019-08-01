@@ -1,0 +1,59 @@
+gradle 依赖
+
+
+
+3.0之前
+
+compile,apk,provided
+
+#### compile  默认的，编译和运行都对其他module可见
+
+#### apk  仅在运行时可用  
+
+#### provided 
+
+不参与打包，只在编译时有效
+
+
+
+----------------------------------------------------------------------------------------------
+
+3.0之后，compile分为2种
+
+#### Implementation 
+
+只会单独编译moudle，即依赖它的项目不会因为版本变动而重新编译,不会把依赖的库暴露给上级
+
+#### API   
+
+就是以前的 compile
+
+
+
+
+
+```
+implementation(rootProject.ext.dependencies["retrofit-converter-gson"]) {
+    exclude module: 'gson'               
+    exclude module: 'okhttp'
+    exclude module: 'okio'
+    exclude module: 'retrofit'
+}
+implementation(rootProject.ext.dependencies["retrofit-adapter-rxjava2"]) {
+    exclude module: 'rxjava'
+    exclude module: 'okhttp'
+    exclude module: 'retrofit'
+    exclude module: 'okio'
+}
+api rootProject.ext.dependencies["okhttp3"]
+```
+
+如果我在我的lib声明这个，意思就是我的project能引用okhttp的类，但无法用rxjava2的adapter和gson，和private类似。我重新编译一个版本，也不会去检查主moudle
+
+#### compileOnly
+
+和provided一个意思。通常依赖一些注解之类的
+
+#### runTimeOnly
+
+和apk对应
